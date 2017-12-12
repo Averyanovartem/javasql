@@ -10,35 +10,35 @@ package projecttestsystem;
  * @author User
  */
 public class Test {
-    private int testId;
-    private Course course;
-
+    private long testId;
+    private long courseId;
+ 
     /**
      * @return the testId
      */
-    public int getTestId() {
+    public long getTestId() {
         return testId;
     }
 
     /**
      * @param testId the testId to set
      */
-    public void setTestId(int testId) {
+    public void setTestId(long testId) {
         this.testId = testId;
     }
-
-    /**
-     * @return the course
-     */
-    public Course getCourse() {
-        return course;
+    public void setTestId(String testId) {
+        this.testId = Long.parseLong(testId);
     }
 
-    /**
-     * @param course the course to set
-     */
-    public void setCourse(Course course) {
-        this.course = course;
+    public long getCourseId() {
+        return courseId;
     }
+
+    public void setCourseId(long courseId) {
+        this.courseId = courseId;
+    }
+     public void setCourseId(String courseId) {
+        this.courseId = Long.parseLong(courseId);
+    }    
     
 }

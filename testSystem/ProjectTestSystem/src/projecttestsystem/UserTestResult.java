@@ -10,38 +10,45 @@ package projecttestsystem;
  * @author User
  */
 public class UserTestResult {
-    private User user;
-    private Test test;
+    private long id;
+    private long userId;
+    private long testId;
     private int points;
     private int maxPoints;
 
-    /**
-     * @return the user
-     */
-    public User getUser() {
-        return user;
+    public long getId() {
+        return id;
     }
 
-    /**
-     * @param user the user to set
-     */
-    public void setUser(User user) {
-        this.user = user;
+    public void setId(long id) {
+        this.id = id;
+    }
+    public void setId(String id) {
+        this.id = Long.parseLong(id);
+    }
+    
+    public long getUserId() {
+        return userId;
     }
 
-    /**
-     * @return the test
-     */
-    public Test getTest() {
-        return test;
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+    public void setUserId(String userId) {
+        this.userId = Long.parseLong(userId);
     }
 
-    /**
-     * @param test the test to set
-     */
-    public void setTest(Test test) {
-        this.test = test;
+    public long getTestId() {
+        return testId;
     }
+
+    public void setTestId(long testId) {
+        this.testId = testId;
+    }
+    public void setTestId(String testId) {
+        this.testId = Long.parseLong(testId);
+    }
+
 
     /**
      * @return the points
@@ -56,6 +63,9 @@ public class UserTestResult {
     public void setPoints(int points) {
         this.points = points;
     }
+    public void setPoints(String points) {
+        this.points = Integer.parseInt(points);
+    }
 
     /**
      * @return the maxPoints
@@ -69,6 +79,9 @@ public class UserTestResult {
      */
     public void setMaxPoints(int maxPoints) {
         this.maxPoints = maxPoints;
+    }
+    public void setMaxPoints(String maxPoints) {
+        this.maxPoints = Integer.parseInt(maxPoints);
     }
     
 }

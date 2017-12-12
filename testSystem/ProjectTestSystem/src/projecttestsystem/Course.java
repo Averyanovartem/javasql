@@ -10,13 +10,16 @@ package projecttestsystem;
  * @author User
  */
 public class Course {
-    private int courseId;
+    private long courseId;
     private String courseName;
     
-    public void setCourseId(int courseId) {
+    public void setCourseId(long courseId) {
         this.courseId = courseId;
     }
-    public int getCourseId() {
+    public void setCourseId(String courseId) {
+        this.courseId = Long.parseLong(courseId);
+    }
+    public long getCourseId() {
         return this.courseId;
     }
     public void setCourseName(String courseName) {

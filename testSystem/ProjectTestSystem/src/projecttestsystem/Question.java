@@ -10,37 +10,38 @@ package projecttestsystem;
  * @author User
  */
 public class Question {
-    private int QuestionId;
-    private Test test;
+    private long QuestionId;
+    private long testId;
     private String questionText;
 
     /**
      * @return the QuestionId
      */
-    public int getQuestionId() {
+    public long getQuestionId() {
         return QuestionId;
     }
 
     /**
      * @param QuestionId the QuestionId to set
      */
-    public void setQuestionId(int QuestionId) {
+    public void setQuestionId(long QuestionId) {
         this.QuestionId = QuestionId;
     }
-
-    /**
-     * @return the test
-     */
-    public Test getTest() {
-        return test;
+    public void setQuestionId(String QuestionId) {
+        this.QuestionId = Long.parseLong(QuestionId);
     }
 
-    /**
-     * @param test the test to set
-     */
-    public void setTest(Test test) {
-        this.test = test;
+    public long getTestId() {
+        return testId;
     }
+
+    public void setTestId(long testId) {
+        this.testId = testId;
+    }
+    public void setTestId(String testId) {
+        this.testId = Long.parseLong(testId);
+    }
+
 
     /**
      * @return the questionText

@@ -10,34 +10,43 @@ package projecttestsystem;
  * @author User
  */
 public class UserCourse {
-    private User user;
-    private Course course;
+    private long id;
+    private long userId;
+    private long courseId;
 
-    /**
-     * @return the user
-     */
-    public User getUser() {
-        return user;
+    public long getId() {
+        return id;
     }
 
-    /**
-     * @param user the user to set
-     */
-    public void setUser(User user) {
-        this.user = user;
+    public void setId(long id) {
+        this.id = id;
+    }
+    public void setId(String id) {
+        this.id = Long.parseLong(id);
+    }
+    
+    
+    public long getUserId() {
+        return userId;
     }
 
-    /**
-     * @return the course
-     */
-    public Course getCourse() {
-        return course;
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+    public void setUserId(String userId) {
+        this.userId = Long.parseLong(userId);
     }
 
-    /**
-     * @param course the course to set
-     */
-    public void setCourse(Course course) {
-        this.course = course;
+    public long getCourseId() {
+        return courseId;
     }
+
+    public void setCourseId(long courseId) {
+        this.courseId = courseId;
+    }
+    public void setCourseId(String courseId) {
+        this.courseId = Long.parseLong(courseId);
+    }
+
+
 }

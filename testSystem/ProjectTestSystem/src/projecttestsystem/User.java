@@ -10,7 +10,7 @@ package projecttestsystem;
  * @author User
  */
 public class User {
-    private int userId;
+    private long userId;
     private String login;
     private String password;
     private String lastName;
@@ -19,15 +19,18 @@ public class User {
     /**
      * @return the userId
      */
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
     /**
      * @param userId the userId to set
      */
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
+    }
+    public void setUserId(String userId) {
+        this.userId = Long.parseLong(userId);	
     }
 
     /**
