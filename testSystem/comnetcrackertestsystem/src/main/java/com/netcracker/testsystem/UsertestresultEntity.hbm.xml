@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.netcracker.testsystem.UsertestresultEntity" table="usertestresult" schema="testsystem">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+        </id>
+        <property name="points">
+            <column name="points" sql-type="int(11)"/>
+        </property>
+        <property name="maxPoints">
+            <column name="maxPoints" sql-type="int(11)"/>
+        </property>
+        <many-to-one name="userByUserId" class="com.netcracker.testsystem.UserEntity">
+            <column name="userId"/>
+        </many-to-one>
+        <many-to-one name="testByTestId" class="com.netcracker.testsystem.TestEntity">
+            <column name="testId"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

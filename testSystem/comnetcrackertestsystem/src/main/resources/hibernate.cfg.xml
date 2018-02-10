@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost:3306/testsystem</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">123456789</property>
+    <!-- DB schema will be updated if needed -->
+    <property name="hbm2ddl.auto">update</property>
+    <mapping class="com.netcracker.testsystem.AnswerEntity"/>
+    <!--<mapping resource="com/netcracker/testsystem/AnswerEntity.hbm.xml"/>-->
+    <mapping class="com.netcracker.testsystem.CourseEntity"/>
+    <!--<mapping resource="com/netcracker/testsystem/CourseEntity.hbm.xml"/>-->
+    <mapping class="com.netcracker.testsystem.QuestionEntity"/>
+    <!--<mapping resource="com/netcracker/testsystem/QuestionEntity.hbm.xml"/>-->
+    <mapping class="com.netcracker.testsystem.TestEntity"/>
+    <!--<mapping resource="com/netcracker/testsystem/TestEntity.hbm.xml"/>-->
+    <mapping class="com.netcracker.testsystem.UserEntity"/>
+    <!--<mapping resource="com/netcracker/testsystem/UserEntity.hbm.xml"/>-->
+    <mapping class="com.netcracker.testsystem.UsercourseEntity"/>
+    <!--<mapping resource="com/netcracker/testsystem/UsercourseEntity.hbm.xml"/>-->
+    <mapping class="com.netcracker.testsystem.UsertestresultEntity"/>
+    <!--<mapping resource="com/netcracker/testsystem/UsertestresultEntity.hbm.xml"/>-->
+
+
+
+  </session-factory>
+</hibernate-configuration>

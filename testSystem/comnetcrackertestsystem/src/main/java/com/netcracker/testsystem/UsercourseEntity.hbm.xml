@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.netcracker.testsystem.UsercourseEntity" table="usercourse" schema="testsystem">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+        </id>
+        <many-to-one name="userByUserId" class="com.netcracker.testsystem.UserEntity">
+            <column name="userId" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="courseByCourseId" class="com.netcracker.testsystem.CourseEntity">
+            <column name="courseId" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
