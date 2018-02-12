@@ -8,10 +8,10 @@ public class UsertestresultEntity {
     private int id;
     private int points;
     private int maxPoints;
-    private UserEntity userByUserId;
-    private TestEntity testByTestId;
+    private int userId;
+    private int testId;
 
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;
@@ -20,6 +20,30 @@ public class UsertestresultEntity {
     public void setId(int id) {
         this.id = id;
     }
+
+    @Basic
+    @Column(name = "userId", nullable = false)
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public  void setUserId(String userId) { this.userId = Integer.parseInt(userId);}
+
+    @Basic
+    @Column(name = "testId", nullable = false)
+    public int getTestId() {
+        return testId;
+    }
+
+    public void setTestId(int testId) {
+        this.testId = testId;
+    }
+
+    public  void setTestId(String testId) { this.testId = Integer.parseInt(testId);}
 
     @Basic
     @Column(name = "points", nullable = false)
@@ -31,6 +55,8 @@ public class UsertestresultEntity {
         this.points = points;
     }
 
+    public  void setPoints(String points) { this.points = Integer.parseInt(points);}
+
     @Basic
     @Column(name = "maxPoints", nullable = false)
     public int getMaxPoints() {
@@ -40,6 +66,10 @@ public class UsertestresultEntity {
     public void setMaxPoints(int maxPoints) {
         this.maxPoints = maxPoints;
     }
+
+    public  void setMaxPoints(String maxPoints) { this.maxPoints = Integer.parseInt(maxPoints);}
+
+
 
     @Override
     public boolean equals(Object o) {
@@ -63,23 +93,5 @@ public class UsertestresultEntity {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "userId", referencedColumnName = "id", nullable = false)
-    public UserEntity getUserByUserId() {
-        return userByUserId;
-    }
 
-    public void setUserByUserId(UserEntity userByUserId) {
-        this.userByUserId = userByUserId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "testId", referencedColumnName = "id", nullable = false)
-    public TestEntity getTestByTestId() {
-        return testByTestId;
-    }
-
-    public void setTestByTestId(TestEntity testByTestId) {
-        this.testByTestId = testByTestId;
-    }
 }

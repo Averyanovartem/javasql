@@ -9,8 +9,9 @@ public class AnswerEntity {
     private String text;
     private int right;
     private int point;
+    private int questionId;
 
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;
@@ -40,6 +41,8 @@ public class AnswerEntity {
         this.right = right;
     }
 
+    public  void setRight(String right) { this.right = Integer.parseInt(right);}
+
     @Basic
     @Column(name = "point", nullable = false)
     public int getPoint() {
@@ -49,6 +52,20 @@ public class AnswerEntity {
     public void setPoint(int point) {
         this.point = point;
     }
+
+    public void setPoint(String point) { this.point = Integer.parseInt(point);}
+
+    @Basic
+    @Column(name = "questionId", nullable = false)
+    public int getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(int questionId) {
+        this.questionId = questionId;
+    }
+
+    public void setQuestionId(String questionId) { this.questionId = Integer.parseInt(questionId);}
 
     @Override
     public boolean equals(Object o) {

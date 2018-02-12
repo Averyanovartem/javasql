@@ -8,7 +8,7 @@ public class CourseEntity {
     private int id;
     private String courseName;
 
-    @Id
+    @Id //@GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;

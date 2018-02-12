@@ -6,9 +6,10 @@ import javax.persistence.*;
 @Table(name = "question", schema = "testsystem", catalog = "")
 public class QuestionEntity {
     private int id;
+    private int testId;
     private String text;
 
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;
@@ -17,6 +18,18 @@ public class QuestionEntity {
     public void setId(int id) {
         this.id = id;
     }
+
+    @Basic
+    @Column(name = "testId", nullable = false)
+    public int getTestId() {
+        return testId;
+    }
+
+    public void setTestId(int id) {
+        this.testId = testId;
+    }
+
+    public void setTestId(String testId) { this.testId = Integer.parseInt(testId);}
 
     @Basic
     @Column(name = "text", nullable = false, length = 500)

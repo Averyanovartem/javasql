@@ -6,10 +6,10 @@ import javax.persistence.*;
 @Table(name = "usercourse", schema = "testsystem", catalog = "")
 public class UsercourseEntity {
     private int id;
-    private UserEntity userByUserId;
-    private CourseEntity courseByCourseId;
+    private int userId;
+    private int courseId;
 
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;
@@ -18,6 +18,30 @@ public class UsercourseEntity {
     public void setId(int id) {
         this.id = id;
     }
+
+    @Basic
+    @Column(name = "userId", nullable = false)
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public void setUserId(String userId) { this.userId = Integer.parseInt(userId);}
+
+    @Basic
+    @Column(name = "courseId", nullable = false)
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(int courseId) {
+        this.userId = courseId;
+    }
+
+    public void setCourseId(String courseId) { this.courseId = Integer.parseInt(courseId);}
 
     @Override
     public boolean equals(Object o) {
@@ -36,23 +60,4 @@ public class UsercourseEntity {
         return id;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "userId", referencedColumnName = "id")
-    public UserEntity getUserByUserId() {
-        return userByUserId;
-    }
-
-    public void setUserByUserId(UserEntity userByUserId) {
-        this.userByUserId = userByUserId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "courseId", referencedColumnName = "id")
-    public CourseEntity getCourseByCourseId() {
-        return courseByCourseId;
-    }
-
-    public void setCourseByCourseId(CourseEntity courseByCourseId) {
-        this.courseByCourseId = courseByCourseId;
-    }
 }

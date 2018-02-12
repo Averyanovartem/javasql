@@ -3,14 +3,15 @@ package com.netcracker.testsystem;
 import javax.persistence.*;
 import java.sql.Date;
 
+
 @Entity
 @Table(name = "test", schema = "testsystem", catalog = "")
 public class TestEntity {
     private int id;
     private Date date;
-    private CourseEntity courseByCourseId;
+    private int courseId;
 
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;
@@ -29,6 +30,23 @@ public class TestEntity {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    public void setDate() {
+        this.date = new Date(1);
+    }
+
+    @Basic
+    @Column(name = "courseId", nullable = false)
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
+    }
+
+    public  void setCourseId(String courseId) { this.courseId = Integer.parseInt(courseId);}
+
 
     @Override
     public boolean equals(Object o) {
@@ -50,13 +68,4 @@ public class TestEntity {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "courseId", referencedColumnName = "id", nullable = false)
-    public CourseEntity getCourseByCourseId() {
-        return courseByCourseId;
-    }
-
-    public void setCourseByCourseId(CourseEntity courseByCourseId) {
-        this.courseByCourseId = courseByCourseId;
-    }
 }
