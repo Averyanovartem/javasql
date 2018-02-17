@@ -7,6 +7,19 @@
     <groupId>com.netcracker</groupId>
     <artifactId>com.netcracker.testsystem</artifactId>
     <version>1.0</version>
+    <packaging>war</packaging>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <properties>
         <hibernate-version>5.0.1.Final</hibernate-version>
@@ -68,6 +81,28 @@
             <version>${hibernate-version}</version>
         </dependency>
         <!--END Hibernate -->
+        <!-- Servlet API 4.0 for tomcat 9 -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- JavaServer Pages API 2.3 for tomcat 9 -->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.glassfish.maven.plugin</groupId>
+            <artifactId>maven-glassfish-plugin</artifactId>
+            <version>2.1</version>
+        </dependency>
 
     </dependencies>
 
