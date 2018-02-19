@@ -49,14 +49,28 @@ public class Model {
 
     }
 
+    public void deleteUser(int userId) {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        UserEntity user = session.get(UserEntity.class, userId);
+        session.delete(user);
+        session.getTransaction().commit();
+        session.close();
+    }
+
     public List<String> listUsers() {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         Query query = session.createQuery("from UserEntity");
         List<Object> usersList = query.list();
 
+//        return usersList.stream()
+//                .map(user -> (UserEntity) user)
+//                .map(UserEntity::getLastName)
+//                .collect(Collectors.toList());
+
         return usersList.stream()
                 .map(user -> (UserEntity) user)
-                .map(UserEntity::getLastName)
+                .map(UserEntity -> UserEntity.getId() + " " + UserEntity.getLastName() + " " + UserEntity.getFirstName())
                 .collect(Collectors.toList());
     }
 }

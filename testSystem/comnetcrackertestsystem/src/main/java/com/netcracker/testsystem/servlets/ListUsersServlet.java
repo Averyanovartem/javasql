@@ -23,4 +23,15 @@ public class ListUsersServlet extends HttpServlet {
         requestDispatcher.forward(req, resp);
 
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int userId = Integer.parseInt(req.getParameter("userId"));
+        Model model = Model.getInstance();
+        model.deleteUser(userId);
+
+        req.setAttribute("deletedUserId", userId);
+        doGet(req, resp);
+
+    }
 }

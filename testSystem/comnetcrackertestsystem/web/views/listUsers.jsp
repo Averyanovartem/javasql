@@ -20,6 +20,25 @@
 <div>
     <div>
         <div>
+            <h2>Delete user</h2>
+        </div>
+
+        <div>
+            <form method="post">
+                <label>User ID:
+                    <input type="text" name="userId"><br />
+                </label>
+                <button type="submit">Delete</button>
+            </form>
+
+            <%
+                if (request.getAttribute("deletedUserId") != null) {
+                    out.println("<p>User '" + request.getAttribute("deletedUserId") + "' deleted!</p>");
+                }
+            %>
+        </div>
+    </div>
+        <div>
             <h2>Users</h2>
         </div>
         <%
